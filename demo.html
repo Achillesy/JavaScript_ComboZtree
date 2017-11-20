@@ -4,6 +4,7 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>ComboZtree Demo</title>
 		<!-- jQuery -->
 		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -15,11 +16,103 @@
 		<link rel="stylesheet" href="https://cdn.bootcss.com/zTree.v3/3.5.29/css/metroStyle/metroStyle.min.css" />
 		<script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.core.min.js"></script>
 		<script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.excheck.min.js"></script>
+		<!-- Prettify -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" />
+		<script src="https://cdn.bootcss.com/prettify/r298/run_prettify.min.js"></script>		
 		<!-- ComboZtree -->
 		<script src="dist/comboztree.min.js"></script>
 	</head>
 
 	<body>
+		<div class="bs-docs-header" id="content" tabindex="-1">
+			<div class="container">
+				<h1>ComboZtree Demo</h1>
+				<p>一个把 Bootstrap 按钮下拉菜单和 zTree 组合起来，实现类似 EasyUI 的 combotree 功能的 js 插件。</p>
+			</div>
+		</div>
+		<div class="container bs-docs-container">
+			<div class="row">
+				<div role="main">
+					<div class="bs-docs-section">
+						<h2>简单实例</h2>
+						<div class="col-sm-4">
+							<input class="form-control comboztree" id="czt1" name="czt1" type="text" />
+						</div>
+						<div class="col-sm-8">
+							<p>Step 1. 定义一个<code>class="comboztree"</code>的输入框</p>
+							<pre class="preffyprint lang-html">
+&lt;input class="form-control comboztree" id="czt1" name="czt1" type="text" /&gt;
+</pre>
+							<p>Step 2. 定义下拉的 JSON 数据:</p>
+							<pre>
+var zNodes = [{
+	"id": "1",
+	"index": "1",
+	"name": "顶级",
+	"pid": "",
+	"open": true,
+	"isParent": true,
+	"children": [{
+		"id": "11",
+		"index": "11",
+		"name": "一级",
+		"pid": "1",
+		"open": true,
+		"isParent": true,
+		"children": [{
+			"id": "111",
+			"index": "111",
+			"name": "111",
+			"pid": "11",
+			"open": false,
+			"isParent": false,
+			"children": null
+			}, {
+			"id": "112",
+			"index": "112",
+			"name": "112",
+			"pid": "11",
+			"open": false,
+			"isParent": true,
+			"children": [{
+				"id": "1121",
+				"index": "1121",
+				"name": "1121",
+				"pid": "112",
+				"open": false,
+				"isParent": false,
+				"children": null
+				}]
+			}, {
+			"id": "113",
+			"index": "113",
+			"name": "113",
+			"pid": "11",
+			"open": false,
+			"isParent": false,
+			"children": null
+		}]
+	}]
+}]
+</pre>
+							<p>Step 3. 文档加载完成<code>$(document).ready</code>以后，执行:</p>
+							<p><pre>
+$("#czt1").ComboZtree('init', {}, zNodes);
+							</pre></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="bs-docs-footer">
+			<div class="container">
+				<ul class="bs-docs-footer-links">
+					<li>
+						<a href="#">GitHub 仓库</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
 		<form id="DemoForm" class="form-horizontal form-label-left" novalidate="novalidate">
 			<div class="form-group">
 				<label class="control-label card-title col-sm-2" for="SingleCZT">单选下拉</label>
@@ -36,48 +129,48 @@
 		</form>
 		<script type="text/javascript">
 			var zNodes = [{
-				"id": "b738d45f-fe25-a880-2979-124929423cf1",
+				"id": "1",
 				"index": "1",
 				"name": "顶级",
 				"pid": "",
 				"open": true,
 				"isParent": true,
 				"children": [{
-					"id": "816ccede-b726-7252-7c48-7e5e4747fc58",
+					"id": "11",
 					"index": "11",
 					"name": "一级",
-					"pid": "b738d45f-fe25-a880-2979-124929423cf1",
+					"pid": "1",
 					"open": true,
 					"isParent": true,
 					"children": [{
-						"id": "d4def20c-23f8-f15b-6716-1690eef0fed6",
+						"id": "111",
 						"index": "111",
 						"name": "111",
-						"pid": "816ccede-b726-7252-7c48-7e5e4747fc58",
+						"pid": "11",
 						"open": false,
 						"isParent": false,
 						"children": null
 					}, {
-						"id": "f9e75cc1-38de-11e8-4bcc-4d20515463ec",
+						"id": "112",
 						"index": "112",
 						"name": "112",
-						"pid": "816ccede-b726-7252-7c48-7e5e4747fc58",
+						"pid": "11",
 						"open": false,
 						"isParent": true,
 						"children": [{
-							"id": "b788e8ea-73d5-e366-d72c-690073f25732",
+							"id": "1121",
 							"index": "1121",
 							"name": "1121",
-							"pid": "f9e75cc1-38de-11e8-4bcc-4d20515463ec",
+							"pid": "112",
 							"open": false,
 							"isParent": false,
 							"children": null
 						}]
 					}, {
-						"id": "ba84c750-debc-9e33-d489-89ff8719145e",
+						"id": "113",
 						"index": "113",
 						"name": "113",
-						"pid": "816ccede-b726-7252-7c48-7e5e4747fc58",
+						"pid": "11",
 						"open": false,
 						"isParent": false,
 						"children": null
@@ -90,6 +183,7 @@
 			};
 
 			$(document).ready(function() {
+				$("#czt1").ComboZtree('init', {}, zNodes);
 				$("#SingleCZT").ComboZtree('init', {}, zNodes);
 				$("#MultiCZT").ComboZtree('init', multiSetting, zNodes);
 			});
