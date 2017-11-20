@@ -17,8 +17,7 @@
 		<script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.core.min.js"></script>
 		<script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.excheck.min.js"></script>
 		<!-- Prettify -->
-		<link rel="stylesheet" href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" />
-		<script src="https://cdn.bootcss.com/prettify/r298/run_prettify.min.js"></script>		
+		<script src="run_prettify.min.js"></script>		
 		<!-- ComboZtree -->
 		<script src="dist/comboztree.min.js"></script>
 	</head>
@@ -40,11 +39,11 @@
 						</div>
 						<div class="col-sm-8">
 							<p>Step 1. 定义一个<code>class="comboztree"</code>的输入框</p>
-							<pre class="preffyprint lang-html">
+							<pre class="prettyprint lang-html">
 &lt;input class="form-control comboztree" id="czt1" name="czt1" type="text" /&gt;
 </pre>
 							<p>Step 2. 定义下拉的 JSON 数据:</p>
-							<pre>
+							<pre class="prettyprint lang-js">
 var zNodes = [{
 	"id": "1",
 	"index": "1",
@@ -96,7 +95,7 @@ var zNodes = [{
 }]
 </pre>
 							<p>Step 3. 文档加载完成<code>$(document).ready</code>以后，执行:</p>
-							<p><pre>
+							<p><pre class="prettyprint lang-js">
 $("#czt1").ComboZtree('init', {}, zNodes);
 							</pre></p>
 						</div>
